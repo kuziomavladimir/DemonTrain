@@ -10,9 +10,9 @@ public class MainClass {
         int n;
         double x, y;
         ArrayList<Point> pointList = new ArrayList<>();
+
         System.out.println("Введи количество НЕстёртых точек (их должно быть от 1 до 4)");
         n = scanner.nextInt();
-
         for (int i = 1; i <= n; i++) {
             System.out.println("Введи координуту х точки " + i);
             x = scanner.nextDouble();
@@ -39,6 +39,7 @@ public class MainClass {
     }
 
     public static double twoPointsArea (ArrayList <Point> point) {
+        // Вычисляет площать для двух известных точек
         double x1 = point.get(0).getX();
         double y1 = point.get(0).getY();
         double x2 = point.get(1).getX();
@@ -50,6 +51,7 @@ public class MainClass {
     }
 
     public static double threePointsArea (ArrayList <Point> point) {
+        // Вычисляет площать для трёх известных точек
         double a, b;
         double x1 = point.get(0).getX();
         double y1 = point.get(0).getY();
@@ -60,14 +62,8 @@ public class MainClass {
         else {
             double x3 = point.get(2).getX();
             double y3 = point.get(2).getY();
-            if (x3 != x2)
-                a = x3 - x2;
-            else
-                a = x3 - x1;
-            if (y3 != y2)
-                b = y3 - y2;
-            else
-                b = y3 - y1;
+            a = (x3 != x2) ? (x3 - x2) : (x3 - x1);
+            b = (y3 != y2) ? (y3 - y2) : (y3 - y1);
             return Math.abs(a * b);
         }
     }
